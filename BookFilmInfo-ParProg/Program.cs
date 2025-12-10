@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            //Kommentar
 
             List<Bok> books = new List<Bok>();
             List<Film> movies = new List<Film>();
