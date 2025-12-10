@@ -1,4 +1,6 @@
-﻿namespace BookFilmInfo_ParProg
+﻿using System;
+
+namespace BookFilmInfo_ParProg
 {
     internal class Program
     {
@@ -9,44 +11,85 @@
             List<Bok> books = new List<Bok>();
             List<Film> movies = new List<Film>();
 
-            //Console.WriteLine("Hello friend, do you want to add a book or a movie?");
-            //Console.WriteLine("1. Book");
-            //Console.WriteLine("1. Movie");
+            
 
 
-            //int input = Convert.ToInt32(Console.ReadLine());
+            while (true)
+            {
+                
+                var input = Input();
 
-            Console.WriteLine("Title:");
-            string inputTitle = Console.ReadLine();
-            Console.WriteLine("Year it came out:");
-            int inputYear = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Description:");
-            string inputDescription = Console.ReadLine();
-            Console.WriteLine("Director:");
-            string inputDirector = Console.ReadLine();
+                if (input == 1)
+                {
+                    Bok inputBok = Bok.RunBookInput();
+                    books.Add(inputBok);
+                }
 
-            //Console.WriteLine("Title: " + inputTitle);
-            //Console.WriteLine("Year: " + inputYear);
-            //Console.WriteLine("Description: " + inputDescription);
-            //Console.WriteLine("Director: " + inputDirector);
+                if (input == 2)
+                {
+                    Film inputFilm = Film.RunMovieInput();
+                    movies.Add(inputFilm);
+                }
 
-            Film inputFilm = new Film(inputTitle, inputYear, inputDescription, inputDirector);
+                if (input == 3)
+                {
+                    PrintLine();
+                    Console.WriteLine("All books added : ");
+                    PrintLine();
+                    Bok.PrintAllBooks(books);
+                }
 
-            Film.PrintMovieInfo(inputFilm);
+                if (input == 4)
+                {
+                    PrintLine();
+                    Console.WriteLine("All movies added : ");
+                    PrintLine();
+                    Film.PrintAllMovies(movies);
+                }
 
-            Console.WriteLine("Title");
-            string inputBookTitle = Console.ReadLine();
-            Console.WriteLine("Published");
-            int inputBookYear = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Description");
-            string inputBookDescription = Console.ReadLine();
-            Console.WriteLine("Author");
-            string inputBookAuthor = Console.ReadLine();
+                if (input == 5)
+                {
+                    PrintLine();
+                    Console.WriteLine("All movies added : ");
+                    PrintLine();
+                    Film.PrintAllMovies(movies);
+                    PrintLine();
+                    Console.WriteLine("All books added : ");
+                    PrintLine();
+                    Bok.PrintAllBooks(books);
+                }
 
-            Bok inputBok = new Bok(inputBookTitle, inputBookYear, inputBookDescription, inputBookAuthor);
+                else
+                {
+                    PrintLine();
+                    Console.WriteLine("that's all");
+                    PrintLine();
+                }
+                
+            }
 
-            Bok.PrintBookInfo(inputBok);
+        }
 
+        private static int Input()
+        {
+            PrintLine();
+            Console.WriteLine("Hello friend, do you want to add a book or a movie, or see all the things you've just added in list?");
+            Console.WriteLine("1. Book");
+            Console.WriteLine("2. Movie");
+            Console.WriteLine("3. View all books");
+            Console.WriteLine("4. View all movies");
+            Console.WriteLine("5. View all books AND movies");
+            PrintLine();
+
+            int input = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            return input;
+            
+        }
+
+        private static void PrintLine()
+        {
+            Console.WriteLine("-------------------------------------------------");
         }
     }
 }
