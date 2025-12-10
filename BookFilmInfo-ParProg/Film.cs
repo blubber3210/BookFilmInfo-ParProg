@@ -23,6 +23,7 @@ namespace BookFilmInfo_ParProg
 
         public static void PrintMovieInfo(Film film)
         {
+            Console.Clear();
             Console.WriteLine();
             Console.WriteLine("Info about the movie:");
             Console.WriteLine();

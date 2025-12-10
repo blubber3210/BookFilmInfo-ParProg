@@ -34,6 +34,19 @@
 
             Film.PrintMovieInfo(inputFilm);
 
+            Console.WriteLine("Title");
+            string inputBookTitle = Console.ReadLine();
+            Console.WriteLine("Published");
+            int inputBookYear = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Description");
+            string inputBookDescription = Console.ReadLine();
+            Console.WriteLine("Author");
+            string inputBookAuthor = Console.ReadLine();
+
+            Bok inputBok = new Bok(inputBookTitle, inputBookYear, inputBookDescription, inputBookAuthor);
+
+            Bok.PrintBookInfo(inputBok);
+
         }
     }
 }

@@ -18,5 +18,17 @@ namespace BookFilmInfo_ParProg
             Description = description;
             Author = author;
         }
+
+        public static void PrintBookInfo(Bok bok)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine("Info about the book:");
+            Console.WriteLine();
+            Console.WriteLine("Title: " + bok.Title);
+            Console.WriteLine("Year: " + bok.PublishedYear);
+            Console.WriteLine("Description: " + bok.Description);
+            Console.WriteLine("Director: " + bok.Author);
+        }
     }
 }
